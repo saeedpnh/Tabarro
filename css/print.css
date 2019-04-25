@@ -1,0 +1,43 @@
+@media print {
+    body {
+        margin: 0;
+        padding: 10px;
+        border: 2px solid #ccc;
+        height: 450px;
+    }
+    #main-nav,
+    #loan-calc,
+    #contact,
+    footer,
+    .btn,
+    hr,
+    header {
+        display: none;
+    }
+    header {
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        height: 0;
+        border: none;
+    }
+    .header-content h1 {
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+    }
+    #calculation {
+        margin: 0 auto;
+        padding: 0;
+        width: 500px;
+        border-top: none;
+        height: 400px
+    }
+    #calculation h5 {
+        margin: 10px;
+    }
+    #calculation h6 {
+        display: block !important;
+        text-align: center;
+    }
+}

@@ -1,0 +1,87 @@
+@font-face {
+  font-family: "vazir";
+  src: url("../fonts/vazir.ttf") format("truetype");
+  /* Saf3-5, Chrome4+, FF3.5*/
+}
+
+hr {
+  width: 70px;
+}
+
+.master-header {
+  position: relative;
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 50px;
+  color: #fff;
+  color: #fff;
+  background: url(../img/pattern11.png), #173e43;
+  background: url(../img/pattern11.png), linear-gradient(to left, #173e43, #173e43);
+  background: url(../img/pattern11.png), -webkit-linear-gradient(to left, #173e43, #173e43);
+  /* border-bottom: 3px solid #ccc;*/
+}
+
+.master-header .header-content h1 {
+  font-size: 30px;
+  line-height: 2;
+}
+
+@media (min-width: 900px) {
+  .master-header {
+    height: 30vh;
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+  .master-header .header-content {
+    margin-bottom: 0;
+  }
+  .master-header .header-content h1 {
+    font-size: 25px;
+    font-weight: 700;
+  }
+}
+
+form input,
+table td {
+  font-family: 'vazir';
+  font-size: 14px;
+  color: #555;
+}
+
+table tbody td:first-child {
+  width: 150px;
+  direction: rtl;
+  text-align: right;
+}
+
+table tbody td:not(:first-child) {
+  text-align: center;
+}
+
+.result-calc button {
+  color: #555;
+  font-family: 'vazir';
+}
+
+#calculation {
+  padding: 100px 0 100px 0;
+  border-top: 3px solid #ccc;
+}
+
+#calculation button {
+  /* cursor: pointer; */
+}
+
+#calculation ::-webkit-input-placeholder {
+  font-size: 12px;
+}
+
+#calculation .col-lg-6:first-child {
+  border-right: 2px solid #f5f5f5;
+}
+
+@media (max-width: 992px) {
+  #calculation .col-lg-6:first-child {
+    border-right: none;
+  }
+}

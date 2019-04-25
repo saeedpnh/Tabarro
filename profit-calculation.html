@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>محاسبه سود - صندوق قرض الحسنه تبرّع</title>
+    <meta name="description" content="صندوق قرض الحسنه تبرّع، ارائه وام های قرض الحسنه و وام اضطراری">
+    <link rel="shortcut icon" href="img/fav-3.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/print.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.html">
+                <img src="img/logo-white2.png" alt="تبرع" width="110" height="40" class="white">
+                <img src="img/logo2.png" alt="تبرع" width="110" height="40" class="gray">
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar-responsive"
+                aria-controls="navbar-responsive" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-responsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">ورود</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">خدمات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#intro">معرفی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">خانه</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="master-header">
+        <div class="container">
+            <div class="row h-100">
+                <div class="col-lg-12">
+                    <div class="header-content mx-auto">
+                        <h1>
+                            صندوق قرض الحسنه تبرّع
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="calculation">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h6 style="display:none;">صندوق قرض الحسنه تبرّع</h6>
+                    <h5 class="text-center text-muted">محاسبه سود بانکی</h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <form>
+                                <div class="form-group">
+                                    <p class="mb-0 text-right"><label class="col-form-label" for="formGroupDeposite">مبلغ سپرده</label></p>      
+                                    <input type="text" class="form-control deposit" id="formGroupDeposite" maxlength="21" onkeyup="return seprateNumber(this);"
+                                        placeholder="مبلغ به تومان" autofocus required pattern="[0-9]{1,21}">
+                                </div>
+                                <div class="form-group">
+                                    <p class="mb-0 text-right"><label class="col-form-label" for="formGroupRate">مقدار سود</label></p>
+                                    <input type="text" class="form-control" id="formGroupRate" maxlength="3" minlength="1" placeholder="مثلا 15 یعنی 15 درصد"
+                                        required>
+                                </div>
+                                <button type="submit" class="btn btn-outline-danger profit">محاسبه سود بانکی</button>
+                            </form>
+                            <div class="result-calc">
+                                <table class="table table-bordered table-sm table-hover mt-3">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <td colspan="2" class="bg-danger" style="color:#fff;">نتیجه محاسبات</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>سود روزانه</td>
+                                            <td id="daily"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>سود در ماه های 31 روزه</td>
+                                            <td id="month31"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>سود درماه های 30 روزه</td>
+                                            <td id="month30"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>سود یک سال (365 روز)</td>
+                                            <td id="yearly"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <button class="btn btn-light btn-sm" onclick="window.print();">چاپ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" id="loan-calc">
+                    <h5 class="text-center text-muted">محاسبه وام صندوق</h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-10 offset-lg-2">
+                            <form>
+                                <div class="form-group">
+                                    <p class="mb-0 text-right"><label class="col-form-label" for="formGroupExampleInput">موجودی صندوق</label></p>
+                                    <input type="text" class="form-control depositLoan" id="formGroupExampleInput" onkeyup="return seprateNumber(this);" placeholder="مبلغ به تومان"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <p class="mb-0 text-right"><label class="col-form-label" for="formGroupMonth">مدت زمان عضویت</label></p>
+                                    <input type="text" class="form-control justNumber" id="formGroupMonth" placeholder="به ماه وارد کنید.مثلا 1 یعنی یک ماه">
+                                </div>
+                                <button type="submit" class="btn btn-outline-success loan">محاسبه وام صندوق</button>
+                            </form>
+                            <div class="result-calc">
+                                <table class="table table-bordered table-sm table-hover mt-3">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <td colspan="2" class="bg-success" style="color:#fff;">نتیجه محاسبات</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>مبلغ وام</td>
+                                            <td id="getLoan"></td>
+                                        </tr>
+                                        <!--
+                                        <tr>
+                                            <td>استراحت پول</td>
+                                            <td id="moneyRest"></td>
+                                        </tr>
+                                        -->
+                                        <tr>
+                                            <td>تعداد قسط (ماه)</td>
+                                            <td id="installmentByMonth"></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>مبلغ هر قسط</td>
+                                            <td id="installmentPaid"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <button class="btn btn-light btn-sm" onclick="window.print();" disabled>چاپ</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <h2 style="display:none;">تماس با صندوق تبرع</h2>
+                <div class="col-lg-6">
+
+                </div>
+                <div class="col-lg-4">
+                    <ul>
+                        <li>
+                            <a href="">مسیر های ارتباطی</a>
+                        </li>
+                        <li>
+                            <a href="">انتقادات و پیشنهادات</a>
+                        </li>
+                        <li>
+                            <a href="">ثبت شکایت</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <img src="img/logo-white2.png" alt="تبرّع" width="110" height="40">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    کلیه حقوق محفوظ است
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script>
+        (function () {
+            $(window).on("scroll", function () {
+                if ($("#main-nav").offset().top > 100) {
+                    $("#main-nav").addClass("navbar-shrink");
+                    $("#main-nav img.white").css('display', 'none');
+                    $("#main-nav img.gray").css('display', 'block');
+                } else {
+                    $("#main-nav").removeClass("navbar-shrink");
+                    $("#main-nav img.white").css('display', 'block');
+                    $("#main-nav img.gray").css('display', 'none');
+                }
+            });
+        })();
+    </script>
+    <script src="js/profit.js"></script>
+</body>
+
+</html>

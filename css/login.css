@@ -1,0 +1,51 @@
+@font-face {
+  font-family: "IRsans";
+  src: url("../fonts/IRANsans.eot") format("eot"),
+    url("../fonts/IRANsans.woff") format("woff"),
+    url("../fonts/IRANsans.ttf") format("truetype");
+  /* Saf3-5, Chrome4+, FF3.5*/
+}
+@font-face {
+  font-family: "vazir";
+  src: url("../fonts/vazir.ttf") format("truetype");
+  /* Saf3-5, Chrome4+, FF3.5*/
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  background: url(../img/pattern11.png), #173e43;
+  background: url(../img/pattern11.png),
+    linear-gradient(to left, #173e43, #173e43);
+  background: url(../img/pattern11.png),
+    -webkit-linear-gradient(to left, #173e43, #173e43);
+}
+
+#login {
+  font-family: "vazir";
+  position: relative;
+  top: 20%;
+}
+
+div.input-group-addon {
+  width: 2.6rem;
+}
+.remember-me {
+  padding-bottom: 0.15rem;
+}
+button {
+  cursor: pointer;
+}
+a.btn {
+  font-size: 13px;
+  color: #fff;
+}
+.custom-control-description {
+  color: #fff;
+}
+a.btn:hover,
+a.btn:hover:focus {
+  text-decoration: none;
+  color: #fff;
+}
